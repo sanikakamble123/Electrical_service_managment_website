@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invoice | Shree Electrical Service</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --purple: #7c3aed;
+    --green: #16a34a;
+    --dark: #0f172a;
+    --text: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f1f5f9;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(37,99,235,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(124,58,237,.10),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   SCREEN HEADER
+========================================================= */
+
+.screen-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #1e3a8a 50%,
+            #4f46e5 100%
+        );
+
+    color: white;
+
+    padding: 30px 20px 80px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.06);
+
+    right: -130px;
+    top: -250px;
+}
+
+.screen-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.04);
+
+    left: -130px;
+    bottom: -230px;
+}
+
+.header-inner {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.brand-logo {
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,.14);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    backdrop-filter: blur(12px);
+
+    font-size: 31px;
+}
+
+.brand-name {
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    letter-spacing: -.5px;
+}
+
+.brand-subtitle {
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    opacity: .72;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 18px;
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,.12);
+
+    border: 1px solid rgba(255,255,255,.28);
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .25s;
+}
+
+.back-button:hover {
+
+    background: white;
+
+    color: var(--blue);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+}
+
+.back-button i {
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HEADER INVOICE
+========================================================= */
+
+.header-invoice {
+
+    padding: 13px 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.11);
+
+    border: 1px solid rgba(255,255,255,.22);
+
+    backdrop-filter: blur(10px);
+
+    min-width: 180px;
+}
+
+.header-invoice-label {
+
+    display: block;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    opacity: .65;
+}
+
+#invoiceNumber {
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.page {
+
+    max-width: 1150px;
+
+    margin: -52px auto 60px;
+
+    padding: 0 18px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.invoice-card {
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px rgba(15,23,42,.12),
+        0 5px 20px rgba(15,23,42,.05);
+}
+
+
+/* =========================================================
+   INVOICE HEADING
+========================================================= */
+
+.invoice-heading {
+
+    padding: 32px 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.invoice-heading-left h1 {
+
+    font-size: 27px;
+
+    color: var(--dark);
+
+    font-weight: 800;
+}
+
+.invoice-heading-left p {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.date-container {
+
+    text-align: right;
+}
+
+.date-label {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+#invoiceDate {
+
+    font-weight: 700;
+
+    color: var(--dark);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.invoice-body {
+
+    padding: 34px 38px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 18px;
+}
+
+.section-icon {
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #eef2ff
+        );
+
+    color: var(--blue);
+
+    font-size: 18px;
+}
+
+.section-heading h2 {
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: var(--dark);
+}
+
+.section-heading p {
+
+    font-size: 10px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CUSTOMER
+========================================================= */
+
+.customer-container {
+
+    margin-bottom: 38px;
+}
+
+.customer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1.4fr;
+
+    gap: 16px;
+}
+
+.customer-box {
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    transition: .25s;
+}
+
+.customer-box:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.07);
+}
+
+.customer-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+    margin-bottom: 8px;
+}
+
+.customer-label i {
+
+    color: var(--blue);
+
+    font-size: 13px;
+}
+
+.customer-value {
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-container {
+
+    margin-top: 5px;
+}
+
+.table-container {
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+.service-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.service-table thead {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+}
+
+.service-table th {
+
+    padding: 16px;
+
+    text-align: left;
+
+    color: #475569;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.service-table th:nth-child(2) {
+
+    text-align: center;
+}
+
+.service-table th:last-child {
+
+    text-align: right;
+}
+
+.service-table td {
+
+    padding: 17px 16px;
+
+    font-size: 13px;
+
+    color: var(--text);
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.service-table tbody tr:last-child td {
+
+    border-bottom: none;
+}
+
+.service-table tbody tr:hover {
+
+    background: #f8fafc;
+}
+
+.service-table td:first-child {
+
+    font-weight: 700;
+
+    color: var(--dark);
+}
+
+.service-table td:nth-child(2) {
+
+    text-align: center;
+}
+
+.service-table td:last-child {
+
+    text-align: right;
+
+    font-weight: 800;
+
+    color: var(--dark);
+}
+
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.total-section {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 22px;
+}
+
+.total-box {
+
+    width: 370px;
+
+    padding: 23px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+
+    border: 1px solid #dbeafe;
+}
+
+.total-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 11px;
+
+    font-size: 12px;
+}
+
+.total-row span {
+
+    color: var(--muted);
+}
+
+.total-row strong {
+
+    color: var(--dark);
+}
+
+.final-total {
+
+    border-top: 1px dashed #cbd5e1;
+
+    margin-top: 13px;
+
+    padding-top: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.final-total span {
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+    color: var(--dark);
+}
+
+#grandTotal {
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   PAYMENT
+========================================================= */
+
+.payment-section {
+
+    margin-top: 40px;
+}
+
+.payment-methods {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.payment-card {
+
+    border: 2px solid var(--border);
+
+    border-radius: 19px;
+
+    padding: 21px;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    position: relative;
+}
+
+.payment-card:hover {
+
+    border-color: #93c5fd;
+
+    transform: translateY(-2px);
+}
+
+.payment-card.selected {
+
+    border-color: var(--blue);
+
+    background: #eff6ff;
+
+    box-shadow:
+        0 10px 30px rgba(37,99,235,.09);
+}
+
+.payment-radio {
+
+    position: absolute;
+
+    opacity: 0;
+}
+
+.payment-main {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.payment-icon {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.cash {
+
+    background: #dcfce7;
+
+    color: var(--green);
+}
+
+.online {
+
+    background: #ede9fe;
+
+    color: var(--purple);
+}
+
+.payment-title {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: var(--dark);
+}
+
+.payment-subtitle {
+
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    color: var(--muted);
+}
+
+.payment-check {
+
+    margin-left: auto;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dbeafe;
+
+    color: var(--blue);
+
+    opacity: 0;
+}
+
+.payment-card.selected .payment-check {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PAYMENT INFO
+========================================================= */
+
+.payment-info {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 21px;
+
+    border-radius: 18px;
+}
+
+#cashPaymentInfo {
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+}
+
+#onlinePaymentInfo {
+
+    background: #f5f3ff;
+
+    border: 1px solid #ddd6fe;
+}
+
+.payment-info.active {
+
+    display: block;
+}
+
+.payment-info-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    color: var(--dark);
+
+    margin-bottom: 7px;
+}
+
+.payment-info p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   UPI
+========================================================= */
+
+.online-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.upi-id {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 10px;
+
+    padding: 9px 13px;
+
+    background: white;
+
+    border: 1px solid #ddd6fe;
+
+    border-radius: 9px;
+
+    color: #5b21b6;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+#upiPayButton {
+
+    margin-top: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #4f46e5
+        );
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.qr-container {
+
+    width: 155px;
+    height: 155px;
+
+    background: white;
+
+    border: 1px solid #ddd6fe;
+
+    border-radius: 16px;
+
+    padding: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.05);
+}
+
+#qrcode img {
+
+    max-width: 128px;
+    max-height: 128px;
+}
+
+#qrcode canvas {
+
+    max-width: 128px;
+    max-height: 128px;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.actions {
+
+    margin-top: 42px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid var(--border);
+}
+
+.action-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.action-button {
+
+    min-width: 185px;
+
+    min-height: 52px;
+
+    border-radius: 13px;
+
+    border: none;
+
+    padding: 13px 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.action-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(15,23,42,.12);
+}
+
+.save {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+}
+
+.print {
+
+    background: #0f172a;
+
+    color: white;
+}
+
+.continue {
+
+    background: white;
+
+    color: var(--blue);
+
+    border: 1px solid #bfdbfe;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.invoice-footer {
+
+    background: #f8fafc;
+
+    border-top: 1px solid var(--border);
+
+    padding: 25px 38px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-company {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-icon {
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dbeafe;
+
+    color: var(--blue);
+}
+
+.footer-company strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: var(--dark);
+}
+
+.footer-company span {
+
+    font-size: 9px;
+
+    color: var(--muted);
+}
+
+.footer-message {
+
+    text-align: right;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    @page {
+
+        size: A4;
+
+        margin: 10mm;
+    }
+
+    * {
+
+        -webkit-print-color-adjust: exact !important;
+
+        print-color-adjust: exact !important;
+    }
+
+    html,
+    body {
+
+        background: white !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+    }
+
+    body {
+
+        font-family: "Inter", Arial, sans-serif;
+
+        color: #111827;
+    }
+
+    /* Hide back button while printing */
+
+    .back-button {
+
+        display: none !important;
+    }
+
+    .screen-header {
+
+        background: white !important;
+
+        color: #111827 !important;
+
+        padding: 0 0 14px !important;
+
+        border-bottom: 2px solid #2563eb;
+    }
+
+    .screen-header::before,
+    .screen-header::after {
+
+        display: none !important;
+    }
+
+    .header-inner {
+
+        max-width: none;
+    }
+
+    .brand-logo {
+
+        background: #eff6ff !important;
+
+        color: #2563eb !important;
+
+        border: 1px solid #bfdbfe !important;
+    }
+
+    .brand-name {
+
+        color: #111827 !important;
+
+        font-size: 20px;
+    }
+
+    .brand-subtitle {
+
+        color: #64748b !important;
+
+        opacity: 1;
+    }
+
+    .header-invoice {
+
+        background: #f8fafc !important;
+
+        border: 1px solid #e2e8f0 !important;
+
+        color: #111827 !important;
+    }
+
+    .header-invoice-label {
+
+        color: #64748b !important;
+
+        opacity: 1;
+    }
+
+    .page {
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+    }
+
+    .invoice-card {
+
+        box-shadow: none !important;
+
+        border-radius: 0 !important;
+
+        overflow: visible !important;
+    }
+
+    .invoice-heading {
+
+        padding: 16px 0 !important;
+    }
+
+    .invoice-heading-left h1 {
+
+        font-size: 22px;
+    }
+
+    .invoice-body {
+
+        padding: 18px 0 !important;
+    }
+
+    .customer-grid {
+
+        grid-template-columns:
+            1fr 1fr 1.4fr !important;
+
+        gap: 10px !important;
+    }
+
+    .customer-box {
+
+        padding: 12px !important;
+
+        box-shadow: none !important;
+
+        background: white !important;
+    }
+
+    .customer-box:hover {
+
+        transform: none !important;
+    }
+
+    .table-container {
+
+        border-radius: 8px !important;
+
+        overflow: visible !important;
+    }
+
+    .service-table th {
+
+        padding: 10px !important;
+
+        font-size: 9px;
+    }
+
+    .service-table td {
+
+        padding: 10px !important;
+
+        font-size: 10px;
+    }
+
+    .total-box {
+
+        width: 330px;
+
+        padding: 16px;
+
+        box-shadow: none;
+    }
+
+    #grandTotal {
+
+        font-size: 22px;
+    }
+
+    .payment-section {
+
+        margin-top: 22px !important;
+    }
+
+    .payment-methods {
+
+        grid-template-columns:
+            1fr 1fr !important;
+
+        gap: 10px !important;
+    }
+
+    .payment-card {
+
+        padding: 13px !important;
+
+        box-shadow: none !important;
+    }
+
+    .payment-card:hover {
+
+        transform: none !important;
+    }
+
+    .payment-info {
+
+        display: block !important;
+    }
+
+    .qr-container {
+
+        width: 125px !important;
+
+        height: 125px !important;
+
+        padding: 8px !important;
+    }
+
+    #qrcode img,
+    #qrcode canvas {
+
+        max-width: 105px !important;
+
+        max-height: 105px !important;
+    }
+
+    #upiPayButton {
+
+        display: none !important;
+    }
+
+    .actions {
+
+        display: none !important;
+    }
+
+    .invoice-footer {
+
+        padding: 17px 0 !important;
+
+        background: white !important;
+
+        margin-top: 12px;
+    }
+
+    .customer-container,
+    .services-container,
+    .payment-section,
+    .total-section,
+    .invoice-footer {
+
+        break-inside: avoid;
+
+        page-break-inside: avoid;
+    }
+
+    tr {
+
+        break-inside: avoid;
+
+        page-break-inside: avoid;
+    }
+
+    #billItems {
+
+        display: table-row-group !important;
+    }
+
+    #cashPaymentInfo,
+    #onlinePaymentInfo {
+
+        display: block !important;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:850px) {
+
+    .header-inner {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .header-actions {
+
+        width: 100%;
+    }
+
+    .header-invoice {
+
+        flex: 1;
+
+        width: 100%;
+    }
+
+    .back-button {
+
+        white-space: nowrap;
+    }
+
+    .customer-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .payment-methods {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media(max-width:600px) {
+
+    .screen-header {
+
+        padding: 22px 15px 70px;
+    }
+
+    .header-actions {
+
+        width: 100%;
+
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .back-button {
+
+        width: 100%;
+    }
+
+    .header-invoice {
+
+        width: 100%;
+    }
+
+    .page {
+
+        padding: 0 10px;
+    }
+
+    .invoice-card {
+
+        border-radius: 20px;
+    }
+
+    .invoice-heading {
+
+        padding: 24px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .date-container {
+
+        text-align: left;
+    }
+
+    .invoice-body {
+
+        padding: 24px 20px;
+    }
+
+    .customer-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+
+        overflow-x: auto;
+    }
+
+    .service-table {
+
+        min-width: 620px;
+    }
+
+    .total-section {
+
+        justify-content: stretch;
+    }
+
+    .total-box {
+
+        width: 100%;
+    }
+
+    .online-content {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .action-buttons {
+
+        flex-direction: column;
+    }
+
+    .action-button {
+
+        width: 100%;
+    }
+
+    .invoice-footer {
+
+        padding: 22px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-message {
+
+        text-align: left;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="screen-header">
+
+    <div class="header-inner">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <i class="bi bi-lightning-charge-fill"></i>
+
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    Shree Electrical Service
+                </div>
+
+                <div class="brand-subtitle">
+                    Professional Electrical Solutions
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+
+            <!-- BACK BUTTON -->
+
+            <button
+                type="button"
+                class="back-button"
+                onclick="goBack()"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back
+
+            </button>
+
+
+            <!-- INVOICE NUMBER -->
+
+            <div class="header-invoice">
+
+                <span class="header-invoice-label">
+                    Invoice Number
+                </span>
+
+                <strong id="invoiceNumber">
+                    SES-000001
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN INVOICE
+========================================================= -->
+
+<main class="page">
+
+    <div class="invoice-card">
+
+
+        <!-- INVOICE HEADING -->
+
+        <section class="invoice-heading">
+
+            <div class="invoice-heading-left">
+
+                <h1>
+                    Service Invoice
+                </h1>
+
+                <p>
+                    Detailed invoice for electrical services
+                </p>
+
+            </div>
+
+
+            <div class="date-container">
+
+                <span class="date-label">
+                    Invoice Date
+                </span>
+
+                <strong id="invoiceDate">
+                    --
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- BODY -->
+
+        <div class="invoice-body">
+
+
+            <!-- =================================================
+                 CUSTOMER INFORMATION
+            ================================================== -->
+
+            <section class="customer-container">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-person-vcard-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Customer Information
+                        </h2>
+
+                        <p>
+                            Customer billing details
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="customer-grid">
+
+
+                    <div class="customer-box">
+
+                        <div class="customer-label">
+
+                            <i class="bi bi-person-fill"></i>
+
+                            Customer Name
+
+                        </div>
+
+                        <div
+                            class="customer-value"
+                            id="customerName"
+                        >
+                            --
+                        </div>
+
+                    </div>
+
+
+                    <div class="customer-box">
+
+                        <div class="customer-label">
+
+                            <i class="bi bi-telephone-fill"></i>
+
+                            Mobile Number
+
+                        </div>
+
+                        <div
+                            class="customer-value"
+                            id="customerMobile"
+                        >
+                            --
+                        </div>
+
+                    </div>
+
+
+                    <div class="customer-box">
+
+                        <div class="customer-label">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            Customer Address
+
+                        </div>
+
+                        <div
+                            class="customer-value"
+                            id="customerAddress"
+                        >
+                            --
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SERVICES
+            ================================================== -->
+
+            <section class="services-container">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-tools"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Electrical Services
+                        </h2>
+
+                        <p>
+                            Services included in this invoice
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="service-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Service Description
+                                </th>
+
+                                <th>
+                                    Quantity
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="billItems">
+
+                            <!-- bill.js inserts services -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- TOTAL -->
+
+                <div class="total-section">
+
+                    <div class="total-box">
+
+
+                        <div class="total-row">
+
+                            <span>
+                                Service Total
+                            </span>
+
+                            <strong id="serviceTotal">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="total-row">
+
+                            <span>
+                                Tax / Other Charges
+                            </span>
+
+                            <strong id="taxAmount">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="final-total">
+
+                            <span>
+                                GRAND TOTAL
+                            </span>
+
+                            <strong id="grandTotal">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PAYMENT
+            ================================================== -->
+
+            <section class="payment-section">
+
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-credit-card-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Payment Method
+                        </h2>
+
+                        <p>
+                            Select the customer's payment method
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="payment-methods">
+
+
+                    <!-- CASH -->
+
+                    <label
+                        class="payment-card"
+                        id="cashMethodCard"
+                    >
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="cash"
+                            class="payment-radio"
+                        >
+
+                        <div class="payment-main">
+
+                            <div class="payment-icon cash">
+
+                                <i class="bi bi-cash-stack"></i>
+
+                            </div>
+
+                            <div>
+
+                                <div class="payment-title">
+                                    Cash Payment
+                                </div>
+
+                                <div class="payment-subtitle">
+                                    Pay directly to service provider
+                                </div>
+
+                            </div>
+
+                            <div class="payment-check">
+
+                                <i class="bi bi-check"></i>
+
+                            </div>
+
+                        </div>
+
+                    </label>
+
+
+
+                    <!-- ONLINE -->
+
+                    <label
+                        class="payment-card"
+                        id="onlineMethodCard"
+                    >
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="online"
+                            class="payment-radio"
+                        >
+
+                        <div class="payment-main">
+
+                            <div class="payment-icon online">
+
+                                <i class="bi bi-qr-code-scan"></i>
+
+                            </div>
+
+                            <div>
+
+                                <div class="payment-title">
+                                    Online / UPI
+                                </div>
+
+                                <div class="payment-subtitle">
+                                    Pay using UPI or QR code
+                                </div>
+
+                            </div>
+
+                            <div class="payment-check">
+
+                                <i class="bi bi-check"></i>
+
+                            </div>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- CASH INFORMATION -->
+
+                <div
+                    id="cashPaymentInfo"
+                    class="payment-info"
+                >
+
+                    <div class="payment-info-title">
+
+                        <i class="bi bi-cash-coin"></i>
+
+                        Cash Payment Information
+
+                    </div>
+
+                    <p>
+
+                        Pay the invoice amount directly to the
+                        Shree Electrical Service representative.
+                        The owner will confirm the payment after
+                        receiving the cash.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ONLINE INFORMATION -->
+
+                <div
+                    id="onlinePaymentInfo"
+                    class="payment-info"
+                >
+
+                    <div class="online-content">
+
+
+                        <div>
+
+                            <div class="payment-info-title">
+
+                                <i class="bi bi-phone-fill"></i>
+
+                                Online UPI Payment
+
+                            </div>
+
+                            <p>
+
+                                Scan the QR code or use the UPI
+                                payment button to start payment.
+
+                            </p>
+
+
+                            <div class="upi-id">
+
+                                <i class="bi bi-at"></i>
+
+                                shreeelectrical@upi
+
+                            </div>
+
+
+                            <br>
+
+
+                            <button
+                                type="button"
+                                id="upiPayButton"
+                            >
+
+                                <i class="bi bi-phone"></i>
+
+                                Pay with UPI
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="qr-container">
+
+                            <div id="qrcode"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <section class="actions">
+
+                <div class="action-buttons">
+
+
+                    <button
+                        type="button"
+                        id="saveBillBtn"
+                        class="action-button save"
+                    >
+
+                        <i class="bi bi-cloud-check-fill"></i>
+
+                        Save Bill
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="action-button print"
+                        onclick="printBill()"
+                    >
+
+                        <i class="bi bi-printer-fill"></i>
+
+                        Print Bill
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="action-button continue"
+                        onclick="continueToServices()"
+                    >
+
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+
+                        Continue to Services
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="invoice-footer">
+
+            <div class="footer-company">
+
+                <div class="footer-icon">
+
+                    <i class="bi bi-lightning-charge-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Shree Electrical Service
+                    </strong>
+
+                    <span>
+                        Reliable • Professional • Trusted
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-message">
+
+                <div>
+                    This is a computer-generated invoice.
+                </div>
+
+                <div>
+                    Thank you for choosing our service.
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     QR CODE LIBRARY
+========================================================= -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
+
+
+<!-- =========================================================
+     HTML2PDF LIBRARY
+========================================================= -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+</script>
+
+
+
+<!-- =========================================================
+     BILL JAVASCRIPT
+========================================================= -->
+
+<script
+    type="module"
+    src="./js/bill.js">
+</script>
+
+
+
+<script>
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+function goBack() {
+
+    /*
+       Go to the previous page.
+       If there is no browser history,
+       return to services.html.
+    */
+
+    if (window.history.length > 1) {
+
+        window.history.back();
+
+    } else {
+
+        window.location.href = "services.html";
+
+    }
+
+}
+
+
+/* =========================================================
+   PAYMENT CARD SELECTION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    const cards =
+        document.querySelectorAll(".payment-card");
+
+
+    cards.forEach(card => {
+
+
+        card.addEventListener("click", function () {
+
+
+            const radio =
+                this.querySelector(
+                    'input[name="paymentMethod"]'
+                );
+
+
+            if (!radio) return;
+
+
+            radio.checked = true;
+
+
+            radio.dispatchEvent(
+                new Event("change", {
+                    bubbles: true
+                })
+            );
+
+
+            /*
+               Add selected class for UI
+            */
+
+            cards.forEach(item => {
+
+                item.classList.remove("selected");
+
+            });
+
+
+            this.classList.add("selected");
+
+        });
+
+    });
+
+});
+
+
+
+/* =========================================================
+   PRINT BILL
+========================================================= */
+
+function printBill() {
+
+    /*
+       Give bill.js time to finish
+       loading invoice information.
+    */
+
+    setTimeout(function () {
+
+        window.print();
+
+    }, 300);
+
+}
+
+
+
+/* =========================================================
+   CONTINUE TO SERVICES
+========================================================= */
+
+function continueToServices() {
+
+    window.location.href = "services.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

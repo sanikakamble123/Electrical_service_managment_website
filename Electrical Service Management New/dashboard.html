@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Shree Electrical Service</title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         CHART JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- =====================================================
+         PROJECT CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css">
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: "Poppins", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(13,110,253,.08),
+                    transparent 30%
+                ),
+                #f4f7fb;
+
+            color: #172033;
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .dashboard-navbar {
+
+            min-height: 72px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #061633,
+                    #003c8f,
+                    #0d6efd
+                );
+
+            border-bottom: 3px solid #ffc107;
+
+        }
+
+
+        .dashboard-navbar .navbar-brand {
+
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .dashboard-navbar .navbar-brand:hover {
+
+            color: #ffc107;
+
+        }
+
+
+        .brand-icon {
+
+            font-size: 25px;
+
+            margin-right: 7px;
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ====================================================== */
+
+        .dashboard-container {
+
+            padding: 30px 25px;
+
+            min-height:
+                calc(100vh - 145px);
+
+        }
+
+
+        /* =====================================================
+           HEADING
+        ====================================================== */
+
+        .dashboard-heading {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f8fbff
+                );
+
+            border-radius: 22px;
+
+            padding: 26px 30px;
+
+            margin-bottom: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 10px 35px
+                rgba(15,23,42,.06);
+
+            border: 1px solid #e7edf5;
+
+        }
+
+
+        .dashboard-small-title {
+
+            color: #0d6efd;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .dashboard-heading h1 {
+
+            margin: 0 0 6px;
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+        }
+
+
+        .dashboard-heading p {
+
+            margin: 0;
+
+            color: #6c757d;
+
+            font-size: 13px;
+
+        }
+
+
+        .live-dashboard-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 14px;
+
+            border-radius: 30px;
+
+            background: #e8f8ef;
+
+            color: #198754;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        .live-dashboard-status span {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #198754;
+
+            box-shadow:
+                0 0 0 5px
+                rgba(25,135,84,.12);
+
+            animation: livePulse 1.5s infinite;
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ====================================================== */
+
+        .dashboard-sidebar {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 18px 12px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(15,23,42,.06);
+
+            position: sticky;
+
+            top: 90px;
+
+            border: 1px solid #e8edf4;
+
+        }
+
+
+        .sidebar-title {
+
+            color: #003c8f;
+
+            font-weight: 800;
+
+            padding: 10px 15px 18px;
+
+            border-bottom: 1px solid #edf0f5;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .sidebar-menu {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+        }
+
+
+        .sidebar-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: #5f6b7a;
+
+            padding: 13px 15px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+
+            transition: .25s;
+
+        }
+
+
+        .sidebar-link:hover {
+
+            background: #edf4ff;
+
+            color: #0d6efd;
+
+            transform: translateX(3px);
+
+        }
+
+
+        .sidebar-link.active {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d6efd,
+                    #003c8f
+                );
+
+            color: white;
+
+            box-shadow:
+                0 8px 18px
+                rgba(13,110,253,.20);
+
+        }
+
+
+        /* =====================================================
+           STAT CARD LINKS
+        ====================================================== */
+
+        .dashboard-stat-link {
+
+            display: block;
+
+            color: inherit;
+
+            text-decoration: none;
+
+            height: 100%;
+
+        }
+
+
+        /* =====================================================
+           STAT CARDS
+        ====================================================== */
+
+        .dashboard-stat-card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 17px;
+
+            min-height: 155px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(15,23,42,.06);
+
+            border: 1px solid #e7edf5;
+
+            transition: .25s;
+
+            overflow: hidden;
+
+            position: relative;
+
+            cursor: pointer;
+
+        }
+
+
+        .dashboard-stat-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(13,110,253,.14);
+
+        }
+
+
+        .dashboard-stat-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+
+            height: 110px;
+
+            border-radius: 50%;
+
+            right: -40px;
+
+            bottom: -45px;
+
+            background:
+                rgba(13,110,253,.05);
+
+        }
+
+
+        .stat-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            min-width: 62px;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 27px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .customers-icon {
+
+            background: #e8f1ff;
+
+            color: #0d6efd;
+
+        }
+
+
+        .orders-icon {
+
+            background: #eeeaff;
+
+            color: #6f42c1;
+
+        }
+
+
+        .revenue-icon {
+
+            background: #e8f8ef;
+
+            color: #198754;
+
+        }
+
+
+        .pending-icon {
+
+            background: #fff4d6;
+
+            color: #dc9200;
+
+        }
+
+
+        .stat-content {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .stat-content p {
+
+            margin: 0 0 5px;
+
+            color: #6c757d;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .stat-content h2 {
+
+            margin: 0 0 5px;
+
+            color: #172033;
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+        }
+
+
+        .stat-content span {
+
+            color: #8a94a6;
+
+            font-size: 10px;
+
+        }
+
+
+        .click-hint {
+
+            position: absolute;
+
+            right: 16px;
+
+            top: 15px;
+
+            color: #b4bdca;
+
+            font-size: 13px;
+
+            z-index: 5;
+
+        }
+
+
+        /* =====================================================
+           GENERAL CARD
+        ====================================================== */
+
+        .dashboard-card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(15,23,42,.06);
+
+            overflow: hidden;
+
+            border: 1px solid #e7edf5;
+
+        }
+
+
+        .dashboard-card-header {
+
+            padding: 20px 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid #edf0f5;
+
+        }
+
+
+        .dashboard-card-header > div:first-child {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .card-heading-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 13px;
+
+            background: #eaf2ff;
+
+            color: #0d6efd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+        }
+
+
+        .dashboard-card-header h4 {
+
+            margin: 0;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+        }
+
+
+        .dashboard-card-header p {
+
+            margin: 3px 0 0;
+
+            color: #8a94a6;
+
+            font-size: 11px;
+
+        }
+
+
+        .view-all-btn {
+
+            text-decoration: none;
+
+            color: #0d6efd;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            background: #edf4ff;
+
+            transition: .2s;
+
+        }
+
+
+        .view-all-btn:hover {
+
+            background: #0d6efd;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           GRAPH
+        ====================================================== */
+
+        .chart-toolbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 16px 24px 0;
+
+        }
+
+
+        .chart-toolbar-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .chart-label {
+
+            font-size: 11px;
+
+            color: #8a94a6;
+
+            font-weight: 700;
+
+        }
+
+
+        .activity-range {
+
+            width: 145px;
+
+            border-radius: 10px;
+
+            border-color: #dfe6ef;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+        }
+
+
+        .chart-container {
+
+            height: 390px;
+
+            padding: 20px 24px 25px;
+
+            position: relative;
+
+        }
+
+
+        #serviceActivityChart {
+
+            width: 100% !important;
+
+            height: 100% !important;
+
+        }
+
+
+        .chart-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            padding:
+                0 24px 22px;
+
+        }
+
+
+        .chart-summary-box {
+
+            background: #f7f9fc;
+
+            border: 1px solid #edf0f5;
+
+            border-radius: 13px;
+
+            padding: 13px 15px;
+
+        }
+
+
+        .chart-summary-box small {
+
+            display: block;
+
+            color: #8a94a6;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .chart-summary-box strong {
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+        }
+
+
+        .chart-summary-box.orders strong {
+
+            color: #0d6efd;
+
+        }
+
+
+        .chart-summary-box.revenue strong {
+
+            color: #198754;
+
+        }
+
+
+        .chart-summary-box.pending strong {
+
+            color: #dc9200;
+
+        }
+
+
+        /* =====================================================
+           ANALYTICS
+        ====================================================== */
+
+        .analytics-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 12px;
+
+            padding:
+                0 24px 22px;
+
+        }
+
+
+        .analytics-mini {
+
+            background: #f7f9fc;
+
+            border: 1px solid #edf0f5;
+
+            border-radius: 13px;
+
+            padding: 13px 14px;
+
+        }
+
+
+        .mini-label {
+
+            display: block;
+
+            color: #8a94a6;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .analytics-mini strong {
+
+            color: #172033;
+
+            font-size: 15px;
+
+        }
+
+
+        /* =====================================================
+           ACTIVITY FEED
+        ====================================================== */
+
+        .activity-feed-wrap {
+
+            border-top:
+                1px solid #edf0f5;
+
+        }
+
+
+        .activity-feed-header {
+
+            padding:
+                16px 24px 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .activity-feed-header strong {
+
+            display: block;
+
+            font-size: 13px;
+
+        }
+
+
+        .activity-feed-header small {
+
+            color: #8a94a6;
+
+            font-size: 10px;
+
+        }
+
+
+        .activity-count {
+
+            min-width: 28px;
+
+            height: 28px;
+
+            padding: 0 8px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: #edf4ff;
+
+            color: #0d6efd;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .live-activity-feed {
+
+            max-height: 235px;
+
+            overflow-y: auto;
+
+            padding:
+                0 24px 20px;
+
+        }
+
+
+        .activity-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 11px 0;
+
+            border-bottom:
+                1px solid #f0f2f6;
+
+        }
+
+
+        .activity-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            min-width: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background: #eaf2ff;
+
+            color: #0d6efd;
+
+        }
+
+
+        .activity-body {
+
+            min-width: 0;
+
+            flex: 1;
+
+        }
+
+
+        .activity-body strong {
+
+            display: block;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+        }
+
+
+        .activity-body span {
+
+            display: block;
+
+            color: #8a94a6;
+
+            font-size: 10px;
+
+            margin-top: 2px;
+
+        }
+
+
+        .activity-amount {
+
+            color: #198754;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =====================================================
+           TABLE
+        ====================================================== */
+
+        .dashboard-table {
+
+            margin: 0;
+
+        }
+
+
+        .dashboard-table thead th {
+
+            background: #f7f9fc;
+
+            color: #667085;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            padding: 15px;
+
+            border: none;
+
+            white-space: nowrap;
+
+        }
+
+
+        .dashboard-table tbody td {
+
+            padding: 15px;
+
+            vertical-align: middle;
+
+            font-size: 13px;
+
+            white-space: nowrap;
+
+            border-color: #f0f2f6;
+
+        }
+
+
+        .dashboard-table tbody tr:hover {
+
+            background: #f8fbff;
+
+        }
+
+
+        .customer-name-cell {
+
+            color: #172033;
+
+            font-weight: 700;
+
+        }
+
+
+        .amount-cell {
+
+            color: #172033;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT STATUS
+        ====================================================== */
+
+        .payment-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 7px 11px;
+
+            border-radius: 30px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .payment-status.success {
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+        }
+
+
+        .payment-status.pending {
+
+            background: #fff4d6;
+
+            color: #a66a00;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT METHOD
+        ====================================================== */
+
+        .payment-method {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            border-radius: 9px;
+
+            padding: 6px 9px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .payment-method.cash {
+
+            background: #e8f8ef;
+
+            color: #198754;
+
+        }
+
+
+        .payment-method.online {
+
+            background: #e8f1ff;
+
+            color: #0d6efd;
+
+        }
+
+
+        .payment-method.pending {
+
+            background: #fff4d6;
+
+            color: #a66a00;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT BUTTONS
+        ====================================================== */
+
+        .verify-payment-btn,
+        .cash-payment-btn {
+
+            border: none;
+
+            border-radius: 9px;
+
+            padding: 8px 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #198754,
+                    #20c997
+                );
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .verify-payment-btn:hover,
+        .cash-payment-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 12px
+                rgba(25,135,84,.2);
+
+        }
+
+
+        .undo-payment-btn {
+
+            border: 1px solid #dc3545;
+
+            border-radius: 9px;
+
+            padding: 7px 10px;
+
+            background: white;
+
+            color: #dc3545;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            transition: .2s;
+
+        }
+
+
+        .undo-payment-btn:hover {
+
+            background: #dc3545;
+
+            color: white;
+
+        }
+
+
+        .waiting-payment {
+
+            color: #a66a00;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           LIVE INDICATOR
+        ====================================================== */
+
+        .live-indicator {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            background: #e8f8ef;
+
+            color: #198754;
+
+            border-radius: 20px;
+
+            padding: 7px 11px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .live-indicator span {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #198754;
+
+            animation:
+                livePulse 1.5s infinite;
+
+        }
+
+
+        @keyframes livePulse {
+
+            50% {
+
+                transform: scale(1.4);
+
+                opacity: .5;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .dashboard-footer {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #061633,
+                    #003c8f
+                );
+
+            color: white;
+
+            padding: 22px;
+
+        }
+
+
+        .dashboard-footer small {
+
+            color: #b9c6dc;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media(max-width:991px) {
+
+            .dashboard-sidebar {
+
+                position: static;
+
+            }
+
+
+            .sidebar-menu {
+
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .dashboard-heading {
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+        }
+
+
+        @media(max-width:576px) {
+
+            .dashboard-container {
+
+                padding: 18px 12px;
+
+            }
+
+
+            .dashboard-heading {
+
+                flex-direction: column;
+
+                padding: 20px;
+
+            }
+
+
+            .sidebar-menu {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .chart-container {
+
+                height: 300px;
+
+                padding: 15px;
+
+            }
+
+
+            .chart-summary {
+
+                grid-template-columns:
+                    1fr;
+
+                padding:
+                    0 15px 15px;
+
+            }
+
+
+            .analytics-summary {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .activity-feed-header,
+            .live-activity-feed {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .dashboard-navbar .navbar-brand {
+
+                font-size: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="navbar navbar-dark shadow-sm dashboard-navbar">
+
+    <div class="container-fluid px-4">
+
+        <a
+            class="navbar-brand"
+            href="dashboard.html">
+
+            <span class="brand-icon">⚡</span>
+
+            Shree Electrical Service
+
+        </a>
+
+
+        <div class="d-flex align-items-center gap-2">
+
+            <a
+                href="dashboard.html"
+                class="btn btn-outline-light btn-sm fw-semibold">
+
+                <i class="bi bi-speedometer2 me-1"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="history.html"
+                class="btn btn-warning btn-sm fw-semibold">
+
+                <i class="bi bi-clock-history me-1"></i>
+
+                History
+
+            </a>
+
+
+            <button
+                type="button"
+                class="btn btn-danger btn-sm fw-semibold"
+                id="logoutBtn">
+
+                <i class="bi bi-box-arrow-right me-1"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<div class="container-fluid dashboard-container">
+
+    <div class="row g-4">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <div class="col-lg-2">
+
+            <div class="dashboard-sidebar">
+
+                <div class="sidebar-title">
+
+                    <i class="bi bi-grid-1x2-fill me-2"></i>
+
+                    Admin Panel
+
+                </div>
+
+
+                <div class="sidebar-menu">
+
+                    <a
+                        href="dashboard.html"
+                        class="sidebar-link active">
+
+                        <i class="bi bi-speedometer2"></i>
+
+                        Dashboard
+
+                    </a>
+
+
+                    <a
+                        href="orders.html"
+                        class="sidebar-link">
+
+                        <i class="bi bi-receipt"></i>
+
+                        All Orders
+
+                    </a>
+
+
+                    <a
+                        href="customers.html"
+                        class="sidebar-link">
+
+                        <i class="bi bi-people"></i>
+
+                        Customers
+
+                    </a>
+
+
+                    <a
+                        href="pending.html"
+                        class="sidebar-link">
+
+                        <i class="bi bi-hourglass-split"></i>
+
+                        Pending Bills
+
+                    </a>
+
+
+                    <a
+                        href="revenue.html"
+                        class="sidebar-link">
+
+                        <i class="bi bi-currency-rupee"></i>
+
+                        Revenue
+
+                    </a>
+
+
+                    <a
+                        href="history.html"
+                        class="sidebar-link">
+
+                        <i class="bi bi-clock-history"></i>
+
+                        History
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="col-lg-10">
+
+
+            <!-- =================================================
+                 HEADING
+            ================================================== -->
+
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <div class="dashboard-small-title">
+
+                        ADMIN CONTROL CENTER
+
+                    </div>
+
+
+                    <h1>
+
+                        Dashboard
+
+                    </h1>
+
+
+                    <p>
+
+                        Monitor customers, orders, payments
+                        and revenue in real time.
+
+                    </p>
+
+                </div>
+
+
+                <div class="live-dashboard-status">
+
+                    <span></span>
+
+                    Payment System Live
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STAT CARDS
+            ================================================== -->
+
+            <div class="row g-4 mb-4">
+
+
+                <!-- CUSTOMERS -->
+
+                <div class="col-md-6 col-xl-3">
+
+                    <a
+                        href="customers.html"
+                        class="dashboard-stat-link">
+
+                        <div class="dashboard-stat-card">
+
+                            <div
+                                class="stat-icon customers-icon">
+
+                                <i class="bi bi-people-fill"></i>
+
+                            </div>
+
+
+                            <div class="stat-content">
+
+                                <p>
+                                    Total Customers
+                                </p>
+
+                                <h2 id="totalCustomers">
+                                    0
+                                </h2>
+
+                                <span>
+                                    View all customers →
+                                </span>
+
+                            </div>
+
+
+                            <i
+                                class="bi bi-arrow-up-right click-hint">
+                            </i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ORDERS -->
+
+                <div class="col-md-6 col-xl-3">
+
+                    <a
+                        href="orders.html"
+                        class="dashboard-stat-link">
+
+                        <div class="dashboard-stat-card">
+
+                            <div
+                                class="stat-icon orders-icon">
+
+                                <i class="bi bi-receipt-cutoff"></i>
+
+                            </div>
+
+
+                            <div class="stat-content">
+
+                                <p>
+                                    Total Orders
+                                </p>
+
+                                <h2 id="totalOrders">
+                                    0
+                                </h2>
+
+                                <span>
+                                    View all orders →
+                                </span>
+
+                            </div>
+
+
+                            <i
+                                class="bi bi-arrow-up-right click-hint">
+                            </i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- REVENUE -->
+
+                <div class="col-md-6 col-xl-3">
+
+                    <a
+                        href="revenue.html"
+                        class="dashboard-stat-link">
+
+                        <div class="dashboard-stat-card">
+
+                            <div
+                                class="stat-icon revenue-icon">
+
+                                <i class="bi bi-currency-rupee"></i>
+
+                            </div>
+
+
+                            <div class="stat-content">
+
+                                <p>
+                                    Total Revenue
+                                </p>
+
+                                <h2 id="totalRevenue">
+                                    ₹0
+                                </h2>
+
+                                <span>
+                                    View revenue →
+                                </span>
+
+                            </div>
+
+
+                            <i
+                                class="bi bi-arrow-up-right click-hint">
+                            </i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- PENDING -->
+
+                <div class="col-md-6 col-xl-3">
+
+                    <a
+                        href="pending.html"
+                        class="dashboard-stat-link">
+
+                        <div class="dashboard-stat-card">
+
+                            <div
+                                class="stat-icon pending-icon">
+
+                                <i class="bi bi-hourglass-split"></i>
+
+                            </div>
+
+
+                            <div class="stat-content">
+
+                                <p>
+                                    Pending Bills
+                                </p>
+
+                                <h2 id="pendingPayments">
+                                    0
+                                </h2>
+
+                                <span>
+                                    View pending bills →
+                                </span>
+
+                            </div>
+
+
+                            <i
+                                class="bi bi-arrow-up-right click-hint">
+                            </i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LIVE GRAPH
+            ================================================== -->
+
+            <div class="dashboard-card mb-4">
+
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <div class="card-heading-icon">
+
+                            <i class="bi bi-bar-chart-line-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Live Service Activity
+                            </h4>
+
+                            <p>
+                                Orders, revenue and pending bills
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="live-indicator">
+
+                        <span></span>
+
+                        Live
+
+                    </span>
+
+                </div>
+
+
+                <!-- GRAPH TOOLBAR -->
+
+                <div class="chart-toolbar">
+
+                    <div class="chart-toolbar-left">
+
+                        <span class="chart-label">
+                            Activity Range
+                        </span>
+
+
+                        <select
+                            id="activityRange"
+                            class="form-select activity-range">
+
+                            <option value="7">
+                                Last 7 Days
+                            </option>
+
+                            <option value="14">
+                                Last 14 Days
+                            </option>
+
+                            <option value="30"
+                                    selected>
+
+                                Last 30 Days
+
+                            </option>
+
+                            <option value="60">
+                                Last 60 Days
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <span
+                        class="text-muted"
+                        style="font-size:10px;">
+
+                        Updates automatically
+
+                    </span>
+
+                </div>
+
+
+                <!-- GRAPH -->
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="serviceActivityChart">
+                    </canvas>
+
+                </div>
+
+
+                <!-- GRAPH SUMMARY -->
+
+                <div class="chart-summary">
+
+
+                    <div class="chart-summary-box orders">
+
+                        <small>
+                            ORDERS IN PERIOD
+                        </small>
+
+                        <strong id="graphOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-summary-box revenue">
+
+                        <small>
+                            REVENUE IN PERIOD
+                        </small>
+
+                        <strong id="graphRevenue">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-summary-box pending">
+
+                        <small>
+                            PENDING IN PERIOD
+                        </small>
+
+                        <strong id="graphPending">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ANALYTICS
+            ================================================== -->
+
+            <div class="dashboard-card mb-4">
+
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <div class="card-heading-icon">
+
+                            <i class="bi bi-activity"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Live Analytics
+                            </h4>
+
+                            <p>
+                                Real-time payment activity
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="live-indicator">
+
+                        <span></span>
+
+                        Live
+
+                    </span>
+
+                </div>
+
+
+                <div class="analytics-summary">
+
+
+                    <div class="analytics-mini">
+
+                        <span class="mini-label">
+                            TOTAL ORDERS
+                        </span>
+
+                        <strong id="activityOrderCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analytics-mini">
+
+                        <span class="mini-label">
+                            VERIFIED REVENUE
+                        </span>
+
+                        <strong id="activityRevenue">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analytics-mini">
+
+                        <span class="mini-label">
+                            PENDING
+                        </span>
+
+                        <strong id="activityActionCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analytics-mini">
+
+                        <span class="mini-label">
+                            LAST UPDATE
+                        </span>
+
+                        <strong id="lastActionTime">
+                            Waiting...
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVITY -->
+
+                <div class="activity-feed-wrap">
+
+                    <div class="activity-feed-header">
+
+                        <div>
+
+                            <strong>
+                                Recent User Actions
+                            </strong>
+
+                            <small>
+                                Live activity from orders
+                            </small>
+
+                        </div>
+
+
+                        <span
+                            class="activity-count"
+                            id="activityFeedCount">
+
+                            0
+
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="liveActivityFeed"
+                        class="live-activity-feed">
+
+                        <div
+                            class="text-center text-muted py-4">
+
+                            Loading activity...
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAYMENT VERIFICATION
+            ================================================== -->
+
+            <div class="dashboard-card">
+
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <div class="card-heading-icon">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Payment Verification
+                            </h4>
+
+                            <p>
+                                Verify customer payments
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="orders.html"
+                        class="view-all-btn">
+
+                        View All
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="table dashboard-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Mobile
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Payment Status
+                                </th>
+
+                                <th>
+                                    Method
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <!--<th>
+                                    Owner Action
+                                </th>-->
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="recentOrders">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="text-center py-5 text-muted">
+
+                                    <div
+                                        class="spinner-border spinner-border-sm text-primary">
+                                    </div>
+
+                                    <div class="mt-2">
+
+                                        Loading orders...
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="dashboard-footer">
+
+    <div class="container text-center">
+
+        <p class="mb-1">
+
+            ⚡
+
+            <strong>
+                Shree Electrical Service
+            </strong>
+
+        </p>
+
+        <small>
+            Electrical Service Management System
+        </small>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+====================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     DASHBOARD JS
+====================================================== -->
+
+<script
+    type="module"
+    src="js/dashboard.js">
+</script>
+
+
+<!-- =====================================================
+     MESSAGES
+====================================================== -->
+
+<script
+    src="js/messages.js">
+</script>
+
+
+</body>
+
+</html>

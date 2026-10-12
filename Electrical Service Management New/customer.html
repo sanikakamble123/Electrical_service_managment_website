@@ -1,0 +1,1827 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Details | Shree Electrical Service</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+    <style>
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .main-navbar {
+            background: linear-gradient(
+                135deg,
+                #0d6efd,
+                #003c8f
+            );
+
+            padding: 10px 0;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.15);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* Logo */
+
+        .navbar-brand {
+            color: white !important;
+
+            font-size: 19px;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+
+        .navbar-brand img {
+            width: 42px;
+            height: 42px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            background: white;
+
+            padding: 2px;
+
+            margin-right: 10px;
+        }
+
+
+        .brand-yellow {
+            color: #ffc107;
+        }
+
+
+        /* Home button */
+
+        .home-btn {
+            background: #ffc107;
+
+            color: #111827 !important;
+
+            border: none;
+
+            border-radius: 25px;
+
+            padding: 9px 20px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .home-btn:hover {
+            background: #ffca2c;
+
+            color: #111827 !important;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Mobile navbar */
+
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.6);
+
+            border-radius: 10px;
+
+            padding: 7px 10px;
+        }
+
+
+        .navbar-toggler:focus {
+            box-shadow:
+                0 0 0 3px rgba(255,193,7,0.3);
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .customer-page {
+
+            min-height:
+                calc(100vh - 70px);
+
+            padding:
+                45px 15px 60px;
+
+            background:
+
+                radial-gradient(
+                    circle at top left,
+                    rgba(13,110,253,0.10),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(255,193,7,0.10),
+                    transparent 35%
+                ),
+
+                #f5f7fb;
+        }
+
+
+        /* =====================================================
+           PROGRESS BAR
+        ===================================================== */
+
+        .progress-wrapper {
+
+            max-width: 800px;
+
+            margin:
+                0 auto 30px;
+        }
+
+
+        .progress-step {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+
+        .step {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #9ca3af;
+        }
+
+
+        .step.active {
+
+            color: #0d6efd;
+        }
+
+
+        .step-number {
+
+            width: 35px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e5e7eb;
+
+            color: #6b7280;
+
+            font-weight: 700;
+        }
+
+
+        .step.active .step-number {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d6efd,
+                    #003c8f
+                );
+
+            color: white;
+
+            box-shadow:
+                0 5px 15px rgba(13,110,253,0.30);
+        }
+
+
+        .step-line {
+
+            width: 70px;
+
+            height: 2px;
+
+            background: #dfe3e8;
+        }
+
+
+        /* =====================================================
+           MAIN CARD
+        ===================================================== */
+
+        .customer-card {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: white;
+
+            box-shadow:
+                0 20px 60px rgba(15,23,42,0.12);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           CARD HEADER
+        ===================================================== */
+
+        .customer-header {
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d6efd,
+                    #003c8f
+                );
+        }
+
+
+        .customer-icon {
+
+            width: 72px;
+
+            height: 72px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            border:
+                1px solid rgba(255,255,255,0.30);
+        }
+
+
+        .customer-icon i {
+
+            font-size: 35px;
+
+            color: #ffc107;
+        }
+
+
+        .customer-header h2 {
+
+            margin: 0;
+
+            font-size: 28px;
+
+            font-weight: 700;
+        }
+
+
+        .customer-header p {
+
+            margin:
+                8px 0 0;
+
+            color:
+                rgba(255,255,255,0.85);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           CARD BODY
+        ===================================================== */
+
+        .customer-body {
+
+            padding: 35px;
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+
+        .section-label i {
+
+            color: #0d6efd;
+
+            font-size: 21px;
+        }
+
+
+        /* =====================================================
+           LABEL
+        ===================================================== */
+
+        .form-label {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #374151;
+
+            margin-bottom: 8px;
+        }
+
+
+        .required {
+
+            color: #dc3545;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           INPUT
+        ===================================================== */
+
+        .input-group-modern {
+
+            position: relative;
+        }
+
+
+        .input-group-modern > i {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #0d6efd;
+
+            font-size: 18px;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        .input-group-modern textarea + i {
+
+            top: 25px;
+        }
+
+
+        .input-group-modern .form-control {
+
+            padding-left: 45px;
+        }
+
+
+        .form-control {
+
+            min-height: 52px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid #dbe2ea;
+
+            background: #f9fafb;
+
+            color: #111827;
+
+            font-size: 14px;
+
+            transition:
+                all 0.25s ease;
+        }
+
+
+        textarea.form-control {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+            padding-top: 15px;
+        }
+
+
+        .form-control::placeholder {
+
+            color: #9ca3af;
+
+            opacity: 1;
+        }
+
+
+        .form-control:hover {
+
+            border-color: #9dbcf2;
+
+            background: white;
+        }
+
+
+        .form-control:focus {
+
+            background: white;
+
+            border-color: #0d6efd;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(13,110,253,0.10);
+
+            outline: none;
+        }
+
+
+        /* Valid */
+
+        .form-control.is-valid {
+
+            border-color: #198754;
+        }
+
+
+        /* Invalid */
+
+        .form-control.is-invalid {
+
+            border-color: #dc3545;
+        }
+
+
+        .invalid-feedback {
+
+            font-size: 12px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           DATE
+        ===================================================== */
+
+        input[type="date"] {
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           ACTIONS
+        ===================================================== */
+
+        .customer-actions {
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid #e5e7eb;
+        }
+
+
+        .continue-btn {
+
+            min-width: 240px;
+
+            padding:
+                13px 25px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #198754,
+                    #0f6b42
+                );
+
+            box-shadow:
+                0 8px 18px
+                rgba(25,135,84,0.20);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .continue-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(25,135,84,0.28);
+        }
+
+
+        .reset-btn {
+
+            min-width: 120px;
+
+            padding:
+                13px 22px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           INFORMATION BOX
+        ===================================================== */
+
+        .form-info {
+
+            margin-top: 20px;
+
+            padding: 12px 15px;
+
+            background: #eef5ff;
+
+            border-left:
+                4px solid #0d6efd;
+
+            border-radius: 8px;
+
+            color: #4b5563;
+
+            font-size: 12px;
+        }
+
+
+        .form-info i {
+
+            color: #0d6efd;
+
+            margin-right: 5px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .customer-page {
+
+                padding:
+                    30px 12px 40px;
+            }
+
+
+            .customer-body {
+
+                padding: 25px 20px;
+            }
+
+
+            .customer-header {
+
+                padding:
+                    30px 20px;
+            }
+
+
+            .customer-header h2 {
+
+                font-size: 24px;
+            }
+
+
+            .step-line {
+
+                width: 35px;
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            .navbar-brand {
+
+                font-size: 16px;
+            }
+
+
+            .navbar-brand img {
+
+                width: 36px;
+
+                height: 36px;
+
+                margin-right: 7px;
+            }
+
+
+            .home-btn {
+
+                display: inline-block;
+
+                width: 100%;
+
+                margin-top: 12px;
+
+                text-align: center;
+            }
+
+
+            .progress-step {
+
+                gap: 4px;
+            }
+
+
+            .step {
+
+                font-size: 10px;
+
+                gap: 4px;
+            }
+
+
+            .step-number {
+
+                width: 30px;
+
+                height: 30px;
+
+                font-size: 11px;
+            }
+
+
+            .step-line {
+
+                width: 20px;
+            }
+
+
+            .customer-body {
+
+                padding: 22px 16px;
+            }
+
+
+            .customer-header h2 {
+
+                font-size: 22px;
+            }
+
+
+            .customer-actions .btn {
+
+                width: 100%;
+
+                margin-bottom: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark main-navbar">
+
+        <div class="container">
+
+            <!-- Logo -->
+
+            <a class="navbar-brand"
+                href="index.html">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Shree Electrical Service Logo">
+
+                <span>
+                    Shree
+                    <span class="brand-yellow">
+                        Electrical Service
+                    </span>
+                </span>
+
+            </a>
+
+
+            <!-- Mobile Button -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#customerNavbar"
+                aria-controls="customerNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Navbar Menu -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="customerNavbar">
+
+                <div class="ms-auto">
+
+                    <a
+                        href="index.html"
+                        class="home-btn">
+
+                        <i class="bi bi-house-fill me-1"></i>
+
+                        Home
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CUSTOMER PAGE
+    ===================================================== -->
+
+    <main class="customer-page">
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================= -->
+
+        <div class="progress-wrapper">
+
+            <div class="progress-step">
+
+                <div class="step active">
+
+                    <span class="step-number">
+                        1
+                    </span>
+
+                    Customer
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step">
+
+                    <span class="step-number">
+                        2
+                    </span>
+
+                    Services
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step">
+
+                    <span class="step-number">
+                        3
+                    </span>
+
+                    Bill
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CUSTOMER CARD
+        ================================================= -->
+
+        <div class="customer-card">
+
+
+            <!-- Header -->
+
+            <div class="customer-header">
+
+                <div class="customer-icon">
+
+                    <i class="bi bi-person-fill"></i>
+
+                </div>
+
+
+                <h2>
+                    Customer Details
+                </h2>
+
+
+                <p>
+                    Enter customer information to continue
+                </p>
+
+            </div>
+
+
+
+            <!-- Body -->
+
+            <div class="customer-body">
+
+
+                <form id="customerForm"
+                    novalidate>
+
+
+                    <!-- ======================================
+                         PERSONAL INFORMATION
+                    ======================================= -->
+
+                    <div class="section-label">
+
+                        <i class="bi bi-person-vcard"></i>
+
+                        Personal Information
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- Customer Name -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label
+                                for="customerName"
+                                class="form-label">
+
+                                Customer Name
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <div class="input-group-modern">
+
+                                <i class="bi bi-person"></i>
+
+                                <input
+                                    type="text"
+                                    id="customerName"
+                                    name="customerName"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    autocomplete="name"
+                                    minlength="2"
+                                    maxlength="50"
+                                    required>
+
+                            </div>
+
+
+                            <div class="invalid-feedback">
+                                Please enter a valid customer name.
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Mobile Number -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label
+                                for="mobile"
+                                class="form-label">
+
+                                Mobile Number
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <div class="input-group-modern">
+
+                                <i class="bi bi-telephone"></i>
+
+                                <input
+                                    type="tel"
+                                    id="mobile"
+                                    name="mobile"
+                                    class="form-control"
+                                    placeholder="Enter 10-digit mobile number"
+                                    maxlength="10"
+                                    inputmode="numeric"
+                                    autocomplete="tel"
+                                    pattern="[6-9][0-9]{9}"
+                                    required>
+
+                            </div>
+
+
+                            <div class="invalid-feedback">
+                                Enter a valid 10-digit mobile number.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ======================================
+                         ADDRESS INFORMATION
+                    ======================================= -->
+
+                    <div class="section-label mt-2">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                        Address Information
+
+                    </div>
+
+
+                    <!-- Full Address -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="address"
+                            class="form-label">
+
+                            Full Address
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-group-modern">
+
+                            <i class="bi bi-house"></i>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                class="form-control"
+                                rows="3"
+                                placeholder="Enter your complete address"
+                                maxlength="200"
+                                autocomplete="street-address"
+                                required></textarea>
+
+                        </div>
+
+
+                        <div class="invalid-feedback">
+                            Please enter your complete address.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Village / City / PIN -->
+
+                    <div class="row">
+
+
+                        <!-- Village -->
+
+                        <div class="col-md-4 mb-4">
+
+                            <label
+                                for="village"
+                                class="form-label">
+
+                                Village
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <div class="input-group-modern">
+
+                                <i class="bi bi-building"></i>
+
+                                <input
+                                    type="text"
+                                    id="village"
+                                    name="village"
+                                    class="form-control"
+                                    placeholder="Enter village"
+                                    maxlength="50"
+                                    required>
+
+                            </div>
+
+
+                            <div class="invalid-feedback">
+                                Please enter village name.
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- City -->
+
+                        <div class="col-md-4 mb-4">
+
+                            <label
+                                for="city"
+                                class="form-label">
+
+                                City
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <div class="input-group-modern">
+
+                                <i class="bi bi-buildings"></i>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    class="form-control"
+                                    placeholder="Enter city"
+                                    maxlength="50"
+                                    required>
+
+                            </div>
+
+
+                            <div class="invalid-feedback">
+                                Please enter city name.
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PIN Code -->
+
+                        <div class="col-md-4 mb-4">
+
+                            <label
+                                for="pincode"
+                                class="form-label">
+
+                                PIN Code
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <div class="input-group-modern">
+
+                                <i class="bi bi-pin-map"></i>
+
+                                <input
+                                    type="text"
+                                    id="pincode"
+                                    name="pincode"
+                                    class="form-control"
+                                    placeholder="Enter 6-digit PIN"
+                                    maxlength="6"
+                                    inputmode="numeric"
+                                    pattern="[1-9][0-9]{5}"
+                                    required>
+
+                            </div>
+
+
+                            <div class="invalid-feedback">
+                                Enter a valid 6-digit PIN code.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ======================================
+                         SERVICE DATE
+                    ======================================= -->
+
+                    <div class="section-label mt-2">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                        Service Date
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            for="date"
+                            class="form-label">
+
+                            Service Date
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-group-modern">
+
+                            <i class="bi bi-calendar3"></i>
+
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                class="form-control"
+                                required>
+
+                        </div>
+
+
+                        <div class="invalid-feedback">
+                            Please select a service date.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Information -->
+
+                    <div class="form-info">
+
+                        <i class="bi bi-info-circle-fill"></i>
+
+                        Please enter correct customer information.
+                        This information will be used for your service
+                        order and bill.
+
+                    </div>
+
+
+
+                    <!-- ======================================
+                         BUTTONS
+                    ======================================= -->
+
+                    <div class="customer-actions">
+
+                        <div
+                            class="d-flex flex-wrap justify-content-center gap-3">
+
+
+                            <!-- Continue -->
+
+                            <button
+                                type="submit"
+                                class="btn btn-success btn-lg continue-btn">
+
+                                Continue to Services
+
+                                <i
+                                    class="bi bi-arrow-right-circle-fill ms-2">
+                                </i>
+
+                            </button>
+
+
+                            <!-- Reset -->
+
+                            <button
+                                type="reset"
+                                class="btn btn-outline-danger btn-lg reset-btn">
+
+                                <i
+                                    class="bi bi-arrow-counterclockwise me-1">
+                                </i>
+
+                                Reset
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         CUSTOMER VALIDATION
+    ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* ==========================================
+                   GET ELEMENTS
+                ========================================== */
+
+                const form =
+                    document.getElementById("customerForm");
+
+                const name =
+                    document.getElementById("customerName");
+
+                const mobile =
+                    document.getElementById("mobile");
+
+                const address =
+                    document.getElementById("address");
+
+                const village =
+                    document.getElementById("village");
+
+                const city =
+                    document.getElementById("city");
+
+                const pincode =
+                    document.getElementById("pincode");
+
+                const date =
+                    document.getElementById("date");
+
+
+                /* ==========================================
+                   SET TODAY'S DATE
+                ========================================== */
+
+                const today =
+                    new Date()
+                        .toISOString()
+                        .split("T")[0];
+
+                date.value = today;
+
+                date.min = today;
+
+
+                /* ==========================================
+                   ONLY NUMBERS
+                   MOBILE
+                ========================================== */
+
+                mobile.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value
+                            .replace(/\D/g, "")
+                            .slice(0, 10);
+
+                    }
+                );
+
+
+                /* ==========================================
+                   ONLY NUMBERS
+                   PINCODE
+                ========================================== */
+
+                pincode.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value
+                            .replace(/\D/g, "")
+                            .slice(0, 6);
+
+                    }
+                );
+
+
+                /* ==========================================
+                   NAME VALIDATION
+                ========================================== */
+
+                function validateName(input) {
+
+                    const value =
+                        input.value.trim();
+
+                    if (
+                        value.length >= 2 &&
+                        /^[A-Za-z ]+$/.test(value)
+                    ) {
+
+                        input.classList.remove(
+                            "is-invalid"
+                        );
+
+                        input.classList.add(
+                            "is-valid"
+                        );
+
+                        return true;
+
+                    }
+
+                    input.classList.remove(
+                        "is-valid"
+                    );
+
+                    input.classList.add(
+                        "is-invalid"
+                    );
+
+                    return false;
+                }
+
+
+                name.addEventListener(
+                    "input",
+                    function () {
+
+                        /* Remove numbers */
+
+                        this.value =
+                            this.value.replace(
+                                /[^A-Za-z ]/g,
+                                ""
+                            );
+
+                        validateName(this);
+
+                    }
+                );
+
+
+                /* ==========================================
+                   VILLAGE / CITY
+                ========================================== */
+
+                function validateText(input) {
+
+                    const value =
+                        input.value.trim();
+
+                    if (
+                        value.length >= 2 &&
+                        /^[A-Za-z ]+$/.test(value)
+                    ) {
+
+                        input.classList.remove(
+                            "is-invalid"
+                        );
+
+                        input.classList.add(
+                            "is-valid"
+                        );
+
+                        return true;
+
+                    }
+
+                    input.classList.remove(
+                        "is-valid"
+                    );
+
+                    input.classList.add(
+                        "is-invalid"
+                    );
+
+                    return false;
+                }
+
+
+                village.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value.replace(
+                                /[^A-Za-z ]/g,
+                                ""
+                            );
+
+                        validateText(this);
+
+                    }
+                );
+
+
+                city.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value.replace(
+                                /[^A-Za-z ]/g,
+                                ""
+                            );
+
+                        validateText(this);
+
+                    }
+                );
+
+
+                /* ==========================================
+                   MOBILE VALIDATION
+                ========================================== */
+
+                mobile.addEventListener(
+                    "blur",
+                    function () {
+
+                        const valid =
+                            /^[6-9][0-9]{9}$/
+                            .test(this.value);
+
+                        this.classList.toggle(
+                            "is-valid",
+                            valid
+                        );
+
+                        this.classList.toggle(
+                            "is-invalid",
+                            !valid
+                        );
+
+                    }
+                );
+
+
+                /* ==========================================
+                   PIN VALIDATION
+                ========================================== */
+
+                pincode.addEventListener(
+                    "blur",
+                    function () {
+
+                        const valid =
+                            /^[1-9][0-9]{5}$/
+                            .test(this.value);
+
+                        this.classList.toggle(
+                            "is-valid",
+                            valid
+                        );
+
+                        this.classList.toggle(
+                            "is-invalid",
+                            !valid
+                        );
+
+                    }
+                );
+
+
+                /* ==========================================
+                   FORM SUBMIT
+                ========================================== */
+
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+
+
+                        /* Let browser validation work */
+
+                        if (!form.checkValidity()) {
+
+                            event.preventDefault();
+
+                            event.stopPropagation();
+
+                        }
+
+
+                        /* Name */
+
+                        if (
+                            !validateName(name)
+                        ) {
+
+                            event.preventDefault();
+
+                        }
+
+
+                        /* Village */
+
+                        if (
+                            !validateText(village)
+                        ) {
+
+                            event.preventDefault();
+
+                        }
+
+
+                        /* City */
+
+                        if (
+                            !validateText(city)
+                        ) {
+
+                            event.preventDefault();
+
+                        }
+
+
+                        /* Mobile */
+
+                        if (
+                            !/^[6-9][0-9]{9}$/
+                            .test(mobile.value)
+                        ) {
+
+                            mobile.classList.add(
+                                "is-invalid"
+                            );
+
+                            event.preventDefault();
+
+                        }
+
+
+                        /* PIN */
+
+                        if (
+                            !/^[1-9][0-9]{5}$/
+                            .test(pincode.value)
+                        ) {
+
+                            pincode.classList.add(
+                                "is-invalid"
+                            );
+
+                            event.preventDefault();
+
+                        }
+
+
+                        form.classList.add(
+                            "was-validated"
+                        );
+
+                    }
+                );
+
+
+                /* ==========================================
+                   RESET
+                ========================================== */
+
+                form.addEventListener(
+                    "reset",
+                    function () {
+
+                        setTimeout(
+                            function () {
+
+                                form
+                                    .querySelectorAll(
+                                        ".form-control"
+                                    )
+                                    .forEach(
+                                        function (input) {
+
+                                            input.classList.remove(
+                                                "is-valid",
+                                                "is-invalid"
+                                            );
+
+                                        }
+                                    );
+
+                                /* Reset date to today */
+
+                                date.value = today;
+
+                            },
+                            10
+                        );
+
+                    }
+                );
+
+            }
+
+        );
+
+    </script>
+
+
+
+    <!-- =====================================================
+         YOUR EXISTING CUSTOMER JS
+    ===================================================== -->
+
+    <script
+        type="module"
+        src="js/customer.js">
+    </script>
+<script src="js/messages.js"></script>
+
+</body>
+
+</html>

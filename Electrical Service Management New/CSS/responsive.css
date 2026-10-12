@@ -1,0 +1,256 @@
+/* ==========================================
+   SHREE ELECTRICAL SERVICE
+   responsive.css
+==========================================*/
+
+/* Large Devices (1200px and below) */
+
+@media (max-width:1200px){
+
+.hero h1{
+    font-size:48px;
+}
+
+.section-title{
+    font-size:32px;
+}
+
+}
+
+/* Laptop */
+
+@media (max-width:992px){
+
+.navbar-brand{
+    font-size:22px;
+}
+
+.hero{
+    min-height:75vh;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.section-title{
+    font-size:30px;
+}
+
+.card{
+    margin-bottom:20px;
+}
+
+.dashboard-card h3{
+    font-size:28px;
+}
+
+.dashboard-card i{
+    font-size:40px;
+}
+
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+.hero{
+    min-height:65vh;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.btn{
+    width:100%;
+    margin-bottom:10px;
+}
+
+.navbar-brand{
+    font-size:20px;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.section-title{
+    font-size:26px;
+}
+
+.table{
+    font-size:14px;
+}
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.dashboard-card{
+    margin-bottom:20px;
+}
+
+.dashboard-card h3{
+    font-size:24px;
+}
+
+.dashboard-card i{
+    font-size:36px;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:576px){
+
+.hero{
+    min-height:60vh;
+    padding:40px 15px;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.navbar-brand{
+    font-size:18px;
+}
+
+.card{
+    border-radius:12px;
+}
+
+.card-header h2,
+.card-header h3,
+.card-header h4{
+    font-size:20px;
+}
+
+.form-control,
+.form-select{
+    font-size:14px;
+    padding:10px;
+}
+
+.btn{
+    font-size:15px;
+    padding:10px;
+}
+
+.section-title{
+    font-size:24px;
+}
+
+.section-subtitle{
+    font-size:14px;
+}
+
+.table{
+    font-size:13px;
+}
+
+.table th,
+.table td{
+    padding:8px;
+}
+
+.dashboard-card h3{
+    font-size:22px;
+}
+
+.dashboard-card i{
+    font-size:32px;
+}
+
+.logo{
+    height:45px;
+}
+
+}
+
+/* Small Mobile */
+
+@media (max-width:400px){
+
+.hero h1{
+    font-size:24px;
+}
+
+.hero p{
+    font-size:14px;
+}
+
+.navbar-brand{
+    font-size:16px;
+}
+
+.section-title{
+    font-size:20px;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.btn{
+    font-size:14px;
+}
+
+.table{
+    font-size:12px;
+}
+
+}
+
+/* Landscape Mobile */
+
+@media (max-height:500px){
+
+.hero{
+    min-height:100vh;
+}
+
+}
+
+/* Print */
+
+@media print{
+
+.navbar,
+footer,
+.btn,
+#logoutBtn{
+    display:none !important;
+}
+
+body{
+    background:#fff;
+}
+
+.card{
+    box-shadow:none;
+    border:1px solid #000;
+}
+
+}

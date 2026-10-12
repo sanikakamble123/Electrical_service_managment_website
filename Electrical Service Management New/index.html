@@ -1,0 +1,1238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shree Electrical Service | Professional Electrical Services</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background: #f5f7fb;
+            margin: 0;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .main-navbar {
+            background: linear-gradient(135deg, #0d6efd, #003c8f);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        /* Normal navigation */
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            margin: 0 4px;
+            padding: 9px 16px !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover */
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff !important;
+        }
+
+        /* Active menu */
+
+        .nav-link.active {
+            background: #ffc107;
+            color: #111827 !important;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Owner button */
+
+        .owner-btn {
+            border-radius: 25px;
+            padding: 9px 20px;
+            font-weight: 600;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(rgba(0, 42, 100, .88), rgba(0, 20, 55, .92)),
+                url("assets/images/electrical.jpg") center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 193, 7, .15);
+            border: 1px solid #ffc107;
+            color: #ffc107;
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #ffc107;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #e9eef7;
+            margin-top: 20px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .hero-btn {
+            border-radius: 30px;
+            padding: 13px 28px;
+            font-weight: 600;
+            margin: 5px;
+            transition: .3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .scroll-icon {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 25px;
+            animation: down 1.5s infinite;
+        }
+
+        @keyframes down {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 8px);
+            }
+        }
+
+        /* ================= SECTION ================= */
+
+        .section-title {
+            font-weight: 800;
+            color: #172033;
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-section {
+            background: white;
+        }
+
+        .about-img {
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 25px;
+            transition: .4s;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.02);
+        }
+
+        .experience-box {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #ffc107;
+            color: #111;
+            padding: 18px 22px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+        }
+
+        .experience-box h3 {
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .about-text {
+            color: #6c757d;
+            line-height: 1.8;
+        }
+
+        .feature-box {
+            background: #f8faff;
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid #edf0f6;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(13, 110, 253, .12);
+            border-color: #0d6efd;
+        }
+
+        .feature-box i {
+            color: #0d6efd;
+            margin-right: 7px;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services-section {
+            background: #f5f7fb;
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            padding: 15px;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .07);
+            transition: .35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(13, 110, 253, .15);
+        }
+
+        .service-icon {
+            width: 75px;
+            height: 75px;
+            margin: auto;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef5ff;
+            color: #0d6efd;
+            font-size: 35px;
+        }
+
+        .service-card h4 {
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .service-card p {
+            color: #6c757d;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta-section {
+            background: linear-gradient(135deg, #0d6efd, #003c8f);
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-weight: 800;
+        }
+
+        .cta-btn {
+            border-radius: 30px;
+            padding: 13px 28px;
+            font-weight: 600;
+            margin: 5px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background: #101828;
+            color: white;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 18px;
+            padding: 22px;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffc107;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            margin: 0;
+            color: #d0d5dd;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #070b12;
+            color: #adb5bd;
+            padding: 22px;
+            text-align: center;
+        }
+
+        footer strong {
+            color: #ffc107;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons .btn {
+                width: 90%;
+                margin: 6px auto;
+            }
+
+            .experience-box {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                display: inline-block;
+                margin-top: -50px;
+                margin-left: 20px;
+            }
+
+            .feature-box {
+                font-size: 13px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+
+            .navbar-brand {
+                font-size: 17px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .about-img {
+                margin-bottom: 25px;
+            }
+
+            .nav-link {
+                margin: 3px 0;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark main-navbar sticky-top shadow">
+
+        <div class="container">
+
+            <!-- Logo -->
+
+            <a class="navbar-brand" href="#home">
+                ⚡ Shree <span>Electrical Service</span>
+            </a>
+
+            <!-- Mobile Button -->
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu"
+                aria-controls="mainMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Menu -->
+
+            <div class="collapse navbar-collapse" id="mainMenu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="#home">
+                            Home
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#services">
+                            Services
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="user-login.html" class="btn btn-outline-light">
+                            <i class="bi bi-person-circle"></i>
+                            Customer Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                        <a href="login.html"
+                            class="btn btn-warning owner-btn">
+
+                            <i class="bi bi-person-lock"></i>
+                            Owner Login
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO / HOME ================= -->
+
+    <section class="hero text-center text-white" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+
+                    <i class="bi bi-lightning-charge-fill"></i>
+
+                    Trusted Electrical Services
+
+                </div>
+
+                <h1>
+
+                    Professional
+                    <span>Electrical</span>
+
+                    <br>
+
+                    Services For Your Home
+
+                </h1>
+
+                <p>
+
+                    Fast • Safe • Reliable • Professional
+
+                    <br>
+
+                    Complete electrical solutions at your doorstep.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="customer.html"
+                        class="btn btn-warning btn-lg hero-btn">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        Start New Order
+
+                    </a>
+
+                    <a href="#services"
+                        class="btn btn-outline-light btn-lg hero-btn">
+
+                        <i class="bi bi-grid"></i>
+
+                        View Services
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-icon">
+
+            <i class="bi bi-chevron-double-down"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about-section py-5" id="about">
+
+        <div class="container py-4">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+
+                    <div class="about-img">
+
+                        <img src="assets/images/electrical.jpg"
+                            class="img-fluid shadow-lg"
+                            alt="Electrical Service">
+
+                        <div class="experience-box">
+
+                            <h3>100%</h3>
+
+                            <small>
+                                Customer Focused
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+
+                        ⚡ ABOUT US
+
+                    </span>
+
+                    <h2 class="section-title mb-3">
+
+                        Shree Electrical Service
+
+                    </h2>
+
+                    <p class="about-text">
+
+                        We provide professional electrical installation,
+                        repair and maintenance services with quality,
+                        safety and customer satisfaction as our highest
+                        priority.
+
+                    </p>
+
+
+                    <div class="row g-3 mt-3">
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Light & Fan Wiring
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Power Plug
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                AC Installation
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Geyser Wiring
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Earthing
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="feature-box">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                MCB Installation
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-4">
+
+                        <a href="customer.html"
+                            class="btn btn-primary btn-lg rounded-pill px-4">
+
+                            <i class="bi bi-lightning-charge-fill"></i>
+
+                            Book Electrical Service
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services-section py-5" id="services">
+
+        <div class="container py-4">
+
+            <div class="text-center mb-5">
+
+                <span class="badge bg-warning text-dark px-3 py-2 mb-2">
+
+                    OUR SERVICES
+
+                </span>
+
+                <h2 class="section-title">
+
+                    Electrical Services We Provide
+
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Reliable electrical solutions for homes,
+                    shops and other requirements.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Service 1 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-lightbulb-fill"></i>
+
+                        </div>
+
+                        <h4>
+                            Light & Fan Point
+                        </h4>
+
+                        <p>
+                            Professional light and fan point
+                            installation and wiring.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 2 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-plug-fill"></i>
+
+                        </div>
+
+                        <h4>
+                            Power Plug
+                        </h4>
+
+                        <p>
+                            Safe and reliable power plug
+                            installation for your requirements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 3 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-snow"></i>
+
+                        </div>
+
+                        <h4>
+                            AC Installation
+                        </h4>
+
+                        <p>
+                            Professional AC electrical
+                            installation and wiring.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 4 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-droplet-fill"></i>
+
+                        </div>
+
+                        <h4>
+                            Geyser Wiring
+                        </h4>
+
+                        <p>
+                            Safe geyser wiring and electrical
+                            connection services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 5 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </div>
+
+                        <h4>
+                            Earthing
+                        </h4>
+
+                        <p>
+                            Proper electrical earthing solutions
+                            for improved safety.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 6 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="service-card text-center">
+
+                        <div class="service-icon">
+
+                            <i class="bi bi-cpu-fill"></i>
+
+                        </div>
+
+                        <h4>
+                            MCB Installation
+                        </h4>
+
+                        <p>
+                            MCB installation and electrical
+                            protection solutions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section py-5">
+
+        <div class="container text-center py-3">
+
+            <i class="bi bi-lightning-charge-fill display-4 text-warning"></i>
+
+            <h2 class="mt-3">
+                Need Electrical Service?
+            </h2>
+
+            <p class="mb-4">
+                Create your service order in just a few simple steps.
+            </p>
+
+            <a href="customer.html"
+                class="btn btn-warning btn-lg cta-btn">
+
+                <i class="bi bi-plus-circle"></i>
+
+                Create New Order
+
+            </a>
+
+            <a href="user-login.html"
+                class="btn btn-light btn-lg cta-btn">
+
+                <i class="bi bi-person-circle"></i>
+
+                My Orders
+
+            </a>
+
+            <a href="login.html"
+                class="btn btn-outline-light btn-lg cta-btn">
+
+                <i class="bi bi-speedometer2"></i>
+
+                Owner Dashboard
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section py-5" id="contact">
+
+        <div class="container py-4">
+
+            <div class="text-center mb-5">
+
+                <span class="badge bg-warning text-dark px-3 py-2">
+
+                    CONTACT US
+
+                </span>
+
+                <h2 class="fw-bold mt-3">
+
+                    Get In Touch
+
+                </h2>
+
+                <p class="text-secondary">
+
+                    Contact us for electrical service requirements.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="contact-card text-center">
+
+                        <i class="bi bi-telephone-fill contact-icon"></i>
+
+                        <h5>
+                            Call Us
+                        </h5>
+
+                        <p>
+                            +91 7506955312
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-card text-center">
+
+                        <i class="bi bi-envelope-fill contact-icon"></i>
+
+                        <h5>
+                            Email Us
+                        </h5>
+
+                        <p>
+                            shreeelectricalservices@gmail.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-card text-center">
+
+                        <i class="bi bi-geo-alt-fill contact-icon"></i>
+
+                        <h5>
+                            Location
+                        </h5>
+
+                        <p>
+                            Kolhapur, Maharashtra
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="mb-2">
+
+                ⚡
+
+                <strong>
+                    Shree Electrical Service
+                </strong>
+
+            </div>
+
+            <small>
+
+                © 2026 Shree Electrical Service.
+                All Rights Reserved.
+
+            </small>
+
+            <br>
+
+            <small>
+
+                Professional Electrical Services
+
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- ================= NAVBAR ACTIVE SCRIPT ================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            const sections = document.querySelectorAll(
+                "#home, #about, #services, #contact"
+            );
+
+            /* --------------------------------
+               CLICK NAVIGATION
+            -------------------------------- */
+
+            navLinks.forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    navLinks.forEach(function (item) {
+
+                        item.classList.remove("active");
+
+                    });
+
+                    this.classList.add("active");
+
+                });
+
+            });
+
+
+            /* --------------------------------
+               CHANGE ACTIVE LINK WHILE SCROLLING
+            -------------------------------- */
+
+            window.addEventListener("scroll", function () {
+
+                let currentSection = "";
+
+                sections.forEach(function (section) {
+
+                    const sectionTop =
+                        section.offsetTop - 120;
+
+                    if (window.scrollY >= sectionTop) {
+
+                        currentSection = section.getAttribute("id");
+
+                    }
+
+                });
+
+
+                navLinks.forEach(function (link) {
+
+                    link.classList.remove("active");
+
+                    if (
+                        link.getAttribute("href") ===
+                        "#" + currentSection
+                    ) {
+
+                        link.classList.add("active");
+
+                    }
+
+                });
+
+            });
+
+
+            /* --------------------------------
+               CLOSE MOBILE MENU AFTER CLICK
+            -------------------------------- */
+
+            navLinks.forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    const menu =
+                        document.getElementById("mainMenu");
+
+                    if (menu.classList.contains("show")) {
+
+                        const collapse =
+                            bootstrap.Collapse.getInstance(menu);
+
+                        if (collapse) {
+
+                            collapse.hide();
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+    
+
+</body>
+
+</html>
+
+<a class="nav-link active" href="#">Home</a>

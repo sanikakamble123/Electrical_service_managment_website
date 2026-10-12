@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pending Bills | Shree Electrical Service</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =================================================
+           GLOBAL
+        ================================================= */
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .custom-navbar {
+
+            min-height: 70px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #7f1d1d
+                );
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .navbar-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: white !important;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        .brand-icon {
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            color: #facc15;
+
+            font-size: 20px;
+        }
+
+
+        .dashboard-btn {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 15px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            text-decoration: none;
+
+            transition: 0.25s;
+        }
+
+
+        .dashboard-btn:hover {
+
+            color: white;
+
+            background:
+                rgba(255,255,255,0.20);
+
+            transform:
+                translateX(-2px);
+        }
+
+
+        /* =================================================
+           HERO SECTION
+        ================================================= */
+
+        .hero-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 45px 0 55px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dc3545,
+                    #a71d2a
+                );
+
+            box-shadow:
+                0 10px 35px rgba(220,53,69,0.20);
+        }
+
+
+        .hero-section::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 290px;
+            height: 290px;
+
+            right: -90px;
+            top: -110px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.08);
+        }
+
+
+        .hero-section::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            left: -60px;
+            bottom: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.06);
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hero-icon {
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 16px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(255,255,255,0.16);
+
+            border:
+                1px solid rgba(255,255,255,0.20);
+
+            font-size: 27px;
+        }
+
+
+        .hero-title {
+
+            margin-bottom: 6px;
+
+            font-size: 32px;
+
+            font-weight: 800;
+        }
+
+
+        .hero-subtitle {
+
+            margin: 0;
+
+            color:
+                rgba(255,255,255,0.85);
+
+            font-size: 14px;
+        }
+
+
+        /* =================================================
+           MAIN CONTENT
+        ================================================= */
+
+        .main-container {
+
+            position: relative;
+
+            z-index: 5;
+
+            margin-top: -25px;
+
+            padding-bottom: 50px;
+        }
+
+
+        /* =================================================
+           PENDING CARD
+        ================================================= */
+
+        .pending-card {
+
+            padding: 25px;
+
+            background: white;
+
+            border:
+                1px solid #e9eef5;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 35px rgba(31,41,55,0.08);
+        }
+
+
+        /* =================================================
+           HEADER
+        ================================================= */
+
+        .card-header-custom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 0;
+
+            color: #111827;
+
+            font-size: 19px;
+
+            font-weight: 700;
+        }
+
+
+        .section-title-icon {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0f1;
+
+            color: #dc3545;
+
+            font-size: 20px;
+        }
+
+
+        /* =================================================
+           SUMMARY
+        ================================================= */
+
+        .summary-row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 6px;
+
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+
+        .summary-item {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .summary-item strong {
+
+            color: #dc3545;
+
+            font-weight: 700;
+        }
+
+
+        .summary-divider {
+
+            color: #cbd5e1;
+        }
+
+
+        .pending-amount {
+
+            color: #dc3545 !important;
+
+            font-weight: 800 !important;
+        }
+
+
+        /* =================================================
+           SEARCH
+        ================================================= */
+
+        .search-wrapper {
+
+            position: relative;
+
+            width: 350px;
+        }
+
+
+        .search-icon {
+
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            z-index: 2;
+
+            transform:
+                translateY(-50%);
+
+            color: #6b7280;
+        }
+
+
+        .search-input {
+
+            width: 100%;
+
+            height: 46px;
+
+            padding:
+                0 15px 0 43px;
+
+            border:
+                1px solid #dbe2ea;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #f8fafc;
+
+            color: #1f2937;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+
+        .search-input:focus {
+
+            background: white;
+
+            border-color: #dc3545;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(220,53,69,0.10);
+        }
+
+
+        /* =================================================
+           TABLE
+        ================================================= */
+
+        .table-container {
+
+            overflow: hidden;
+
+            border:
+                1px solid #e9eef5;
+
+            border-radius: 15px;
+        }
+
+
+        .pending-table {
+
+            min-width: 1050px;
+
+            margin: 0;
+        }
+
+
+        .pending-table thead th {
+
+            padding:
+                16px 14px;
+
+            border-bottom:
+                1px solid #e5eaf0;
+
+            background: #f7f9fc;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            white-space: nowrap;
+        }
+
+
+        .pending-table tbody td {
+
+            padding:
+                16px 14px;
+
+            border-bottom:
+                1px solid #eef2f6;
+
+            color: #475569;
+
+            font-size: 13px;
+
+            vertical-align: middle;
+        }
+
+
+        .pending-table tbody tr {
+
+            transition: 0.2s;
+        }
+
+
+        .pending-table tbody tr:hover {
+
+            background: #fffafb;
+        }
+
+
+        .pending-table tbody tr:last-child td {
+
+            border-bottom: none;
+        }
+
+
+        /* =================================================
+           INVOICE
+        ================================================= */
+
+        .invoice-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding:
+                7px 10px;
+
+            border-radius: 8px;
+
+            background: #eef4ff;
+
+            color: #0d6efd;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        /* =================================================
+           CUSTOMER
+        ================================================= */
+
+        .customer-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            min-width: 160px;
+        }
+
+
+        .customer-avatar {
+
+            width: 38px;
+            height: 38px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dc3545,
+                    #a71d2a
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        .customer-name {
+
+            margin-bottom: 2px;
+
+            color: #111827;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        .customer-label {
+
+            color: #94a3b8;
+
+            font-size: 10px;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        .mobile-number {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            white-space: nowrap;
+        }
+
+
+        .mobile-number i {
+
+            color: #dc3545;
+        }
+
+
+        /* =================================================
+           AMOUNT
+        ================================================= */
+
+        .amount {
+
+            color: #dc3545;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        .amount-icon {
+
+            margin-right: 3px;
+
+            color: #dc3545;
+        }
+
+
+        /* =================================================
+           PAYMENT METHOD
+        ================================================= */
+
+        .method-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding:
+                6px 10px;
+
+            border-radius: 8px;
+
+            background: #f1f5f9;
+
+            color: #475569;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        .method-online {
+
+            background: #e9f2ff;
+
+            color: #0d6efd;
+        }
+
+
+        .method-cash {
+
+            background: #e5f7ed;
+
+            color: #198754;
+        }
+
+
+        /* =================================================
+           PENDING STATUS
+        ================================================= */
+
+        .pending-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            padding:
+                6px 10px;
+
+            border-radius: 8px;
+
+            background: #fff3cd;
+
+            color: #9a6700;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        /* =================================================
+           DATE
+        ================================================= */
+
+        .pending-date {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+        }
+
+
+        .pending-date i {
+
+            color: #dc3545;
+        }
+
+
+        /* =================================================
+           VERIFY BUTTON
+        ================================================= */
+
+        .verify-btn {
+
+            min-width: 125px;
+
+            padding:
+                8px 12px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #198754,
+                    #157347
+                );
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 4px 12px
+                rgba(25,135,84,0.15);
+
+            transition: 0.25s;
+        }
+
+
+        .verify-btn:hover {
+
+            color: white;
+
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 6px 16px
+                rgba(25,135,84,0.25);
+        }
+
+
+        .verify-btn i {
+
+            margin-right: 4px;
+        }
+
+
+        /* =================================================
+           LOADING
+        ================================================= */
+
+        .loading-box {
+
+            padding:
+                55px 20px !important;
+
+            text-align: center;
+        }
+
+
+        .loading-spinner {
+
+            width: 32px;
+            height: 32px;
+
+            margin:
+                0 auto 12px;
+
+            border:
+                3px solid #e5e7eb;
+
+            border-top-color: #dc3545;
+
+            border-radius: 50%;
+
+            animation:
+                spin 0.8s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        .page-footer {
+
+            margin-top: 20px;
+
+            color: #94a3b8;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 768px) {
+
+            .hero-section {
+
+                padding:
+                    35px 0 45px;
+            }
+
+
+            .hero-title {
+
+                font-size: 25px;
+            }
+
+
+            .card-header-custom {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .search-wrapper {
+
+                width: 100%;
+            }
+
+
+            .pending-card {
+
+                padding: 17px;
+            }
+
+
+            .dashboard-btn span {
+
+                display: none;
+            }
+
+
+            .navbar-brand {
+
+                font-size: 14px;
+            }
+
+
+            .brand-icon {
+
+                width: 35px;
+                height: 35px;
+            }
+
+
+            .summary-row {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .summary-divider {
+
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar custom-navbar">
+
+    <div class="container">
+
+
+        <a href="dashboard.html"
+           class="navbar-brand">
+
+            <span class="brand-icon">
+
+                <i class="bi bi-lightning-charge-fill"></i>
+
+            </span>
+
+            <span>
+                Shree Electrical Service
+            </span>
+
+        </a>
+
+
+        <a href="dashboard.html"
+           class="dashboard-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container hero-content">
+
+
+        <div class="hero-icon">
+
+            <i class="bi bi-hourglass-split"></i>
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+            Pending Bills
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+            Manage bills waiting for payment verification
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="container main-container">
+
+
+    <div class="pending-card">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="card-header-custom">
+
+
+            <div>
+
+
+                <h2 class="section-title">
+
+
+                    <span class="section-title-icon">
+
+                        <i class="bi bi-clock-history"></i>
+
+                    </span>
+
+
+                    Pending Payment Records
+
+
+                </h2>
+
+
+                <div class="summary-row">
+
+
+                    <span class="summary-item">
+
+                        <i class="bi bi-receipt"></i>
+
+                        Pending Bills:
+
+                        <strong id="pendingCount">
+                            0
+                        </strong>
+
+                    </span>
+
+
+                    <span class="summary-divider">
+                        |
+                    </span>
+
+
+                    <span class="summary-item">
+
+                        <i class="bi bi-currency-rupee"></i>
+
+                        Pending Amount:
+
+                        <strong
+                            id="pendingAmount"
+                            class="pending-amount">
+
+                            ₹0
+
+                        </strong>
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SEARCH -->
+
+            <div class="search-wrapper">
+
+                <i class="bi bi-search search-icon"></i>
+
+
+                <input
+                    id="searchInput"
+                    class="search-input"
+                    type="text"
+                    placeholder="Search customer or invoice..."
+                    autocomplete="off">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             TABLE
+        ================================================== -->
+
+        <div class="table-container">
+
+            <div class="table-responsive">
+
+
+                <table class="table pending-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Invoice
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Mobile
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Payment Method
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="pendingTable">
+
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="loading-box">
+
+
+                                <div
+                                    class="loading-spinner">
+                                </div>
+
+
+                                <div
+                                    class="fw-semibold text-secondary">
+
+                                    Loading pending bills...
+
+                                </div>
+
+
+                                <small
+                                    class="text-muted">
+
+                                    Please wait
+
+                                </small>
+
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="page-footer">
+
+            <i class="bi bi-shield-check me-1"></i>
+
+            Pending payment records are securely managed by
+            Shree Electrical Service
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- Pending Bills Firebase JS -->
+
+<script
+    type="module"
+    src="js/pending.js">
+</script>
+
+
+</body>
+
+</html>
